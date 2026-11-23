@@ -404,6 +404,23 @@
     }
   ];
 
+  function foldVCardLine(line){
+    // RFC 2425/2426 line folding: max 75 octets per physical line,
+    // continuation lines start with a single space. Without this,
+    // very long unfolded lines (eg. base64 PHOTO data) can be
+    // silently truncated or ignored by some vCard parsers (notably
+    // iOS Contacts), which imports the contact but drops the photo.
+    if (line.length <= 75) return line;
+    var result = line.substring(0, 75);
+    var rest = line.substring(75);
+    while (rest.length > 0){
+      var chunk = rest.substring(0, 74);
+      result += "\r\n " + chunk;
+      rest = rest.substring(74);
+    }
+    return result;
+  }
+
   function buildVCard(person){
     var parts = person.name.trim().split(" ");
     var given = parts.slice(0,-1).join(" ") || parts[0];
@@ -425,7 +442,7 @@
       lines.push("PHOTO;ENCODING=b;TYPE=JPEG:"+person.vcardPhotoB64);
     }
     lines.push("END:VCARD");
-    return lines.join("\r\n");
+    return lines.map(foldVCardLine).join("\r\n");
   }
 
   function byslug(s){
@@ -656,4 +673,4 @@
 })();
 </script>
 
-<!-- redeploy 2026-11-23T09:36:13.076390 -->
+<!-- redeploy 2026-11-23T09:49:33.240646+00:00 -->

@@ -291,6 +291,10 @@
     z-index:2;
   }
   .profile-topbar .backbtn{color:#dbe6f2;}
+  .profile-topbar-logo{
+    width:30px;height:30px;border-radius:50%;flex:none;
+    box-shadow:0 0 0 1px rgba(255,255,255,.25);
+  }
   .save-cta-wrap{padding:18px 24px 4px;}
   .save-cta{
     display:flex;align-items:center;justify-content:center;gap:9px;
@@ -359,14 +363,6 @@
     font-family:'IBM Plex Mono',monospace;font-size:10.5px;
     letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
     text-align:center;
-  }
-  .profile-brands{
-    display:flex;align-items:center;justify-content:center;
-    margin:4px 0 2px;
-  }
-  .profile-brands img{
-    width:34px;height:34px;border-radius:50%;flex:none;
-    box-shadow:0 0 0 1px rgba(28,36,48,.08);
   }
 
   [hidden]{display:none!important;}
@@ -603,7 +599,7 @@
     var telHref = "tel:" + person.phone.replace(/[^0-9+]/g,"");
     return '' +
     '<div class="profile-view">' +
-      '<div class="profile-topbar"><button class="backbtn" data-nav="home">'+iconArrow()+' Répertoire</button></div>' +
+      '<div class="profile-topbar"><button class="backbtn" data-nav="home">'+iconArrow()+' Répertoire</button><img src="'+LOGO+'" alt="OctoVision / SocialVision" class="profile-topbar-logo"></div>' +
       '<div class="profile-hero">' +
         (person.photo ? '<img src="'+person.photo+'" alt="">' : '<div class="avatar-fallback" style="width:112px;height:112px;font-size:32px;">'+initials(person.name)+'</div>') +
         '<div class="pname">'+esc(person.name)+'</div>' +
@@ -637,7 +633,6 @@
       '</div>' +
       '<p class="profile-slogan">« '+esc(COMPANY.slogan)+' »</p>' +
       '<div class="profile-foot">' +
-        '<div class="profile-brands"><img src="'+LOGO+'" alt="OctoVision / SocialVision"></div>' +
         '<button class="ghost-link" data-nav="qr" data-slug="'+person.slug+'" style="color:var(--navy-800);border-color:rgba(28,36,48,.35);">'+iconQrGlyph()+' Voir le QR code</button>' +
       '</div>' +
     '</div>';
@@ -697,4 +692,4 @@
 })();
 </script>
 
-<!-- redeploy 2026-11-23T15:18:37.450909+00:00 -->
+<!-- redeploy 2026-11-23T15:39:26.714670+00:00 -->

@@ -27,6 +27,11 @@
     --ink-soft:#56676a;
     --hairline:#d7ded8;
     --hairline-dark:rgba(255,255,255,.16);
+    /* accent borrowed from SocialVision's brand (sister product) for shared headers */
+    --accent-indigo:#5b57e6;
+    --brand-gradient:
+      radial-gradient(75% 70% at 90% 0%, rgba(91,87,230,.5) 0%, rgba(91,87,230,0) 62%),
+      linear-gradient(165deg, var(--navy-600) 0%, var(--navy-800) 40%, var(--navy-950) 100%);
   }
   *,*::before,*::after{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
@@ -55,7 +60,7 @@
 
   /* ---- shared ---- */
   .brandbar{
-    background:var(--navy-800);
+    background:var(--brand-gradient);
     color:#fff;
     padding:calc(22px + env(safe-area-inset-top)) 24px 20px;
     display:flex;
@@ -163,7 +168,7 @@
 
   /* ---- QR VIEW ---- */
   .qr-view{
-    background:var(--navy-950);
+    background:var(--brand-gradient);
     color:#fff;
     flex:1;
     display:flex;
@@ -261,7 +266,9 @@
   .profile-hero{
     padding:30px 24px 22px;
     display:flex;flex-direction:column;align-items:center;text-align:center;
-    background:linear-gradient(180deg,var(--navy-800) 0%,var(--navy-800) 62%,var(--paper) 62%);
+    background:
+      radial-gradient(75% 75% at 90% 0%, rgba(91,87,230,.45) 0%, rgba(91,87,230,0) 62%),
+      linear-gradient(165deg,var(--navy-600) 0%,var(--navy-900) 62%,var(--navy-900) 62%,var(--paper) 62%);
   }
   .profile-hero img{
     width:112px;height:112px;border-radius:50%;object-fit:cover;
@@ -369,7 +376,7 @@
 
   var COMPANY = {
     name: "OctoVision",
-    slogan: "Structurez simplement votre cabinet",
+    slogan: "Structurez simplement votre cabinet et donnez de la valeur à votre pôle social",
     website: "https://octovision.fr/",
     websiteLabel: "octovision.fr"
   };
@@ -549,7 +556,7 @@
     return '' +
     '<div class="brandbar">' +
       '<img src="'+LOGO+'" alt="">' +
-      '<div><div class="wordmark">'+esc(COMPANY.name)+'</div><div class="grouptag">'+esc(COMPANY.websiteLabel)+'</div></div>' +
+      '<div><div class="wordmark">'+esc(COMPANY.name)+' / SocialVision</div><div class="grouptag">'+esc(COMPANY.websiteLabel)+'</div></div>' +
     '</div>' +
     '<div class="home-hero">' +
       '<div class="eyebrow">Répertoire de contacts</div>' +
@@ -673,4 +680,4 @@
 })();
 </script>
 
-<!-- redeploy 2026-11-23T09:49:33.240646+00:00 -->
+<!-- redeploy 2026-11-23T13:14:36.203785+00:00 -->

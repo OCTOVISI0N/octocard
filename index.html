@@ -360,6 +360,14 @@
     letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
     text-align:center;
   }
+  .profile-brands{
+    display:flex;align-items:center;justify-content:center;
+    margin:4px 0 2px;
+  }
+  .profile-brands img{
+    width:34px;height:34px;border-radius:50%;flex:none;
+    box-shadow:0 0 0 1px rgba(28,36,48,.08);
+  }
 
   [hidden]{display:none!important;}
   :focus-visible{outline:2px solid var(--gold-600);outline-offset:2px;}
@@ -379,7 +387,9 @@
     name: "OctoVision",
     slogan: "Structurez simplement votre cabinet et donnez de la valeur à votre pôle social",
     website: "https://octovision.fr/",
-    websiteLabel: "octovision.fr"
+    websiteLabel: "octovision.fr",
+    website2: "https://socialvision.fr/",
+    website2Label: "socialvision.fr"
   };
 
   var PEOPLE = [
@@ -557,7 +567,7 @@
     return '' +
     '<div class="brandbar">' +
       '<img src="'+LOGO+'" alt="">' +
-      '<div><div class="wordmark">'+esc(COMPANY.name)+' / SocialVision</div><div class="grouptag">'+esc(COMPANY.websiteLabel)+'</div></div>' +
+      '<div class="wordmark">'+esc(COMPANY.name)+' / SocialVision</div>' +
     '</div>' +
     '<div class="home-hero">' +
       '<div class="eyebrow">Répertoire de contacts</div>' +
@@ -616,12 +626,18 @@
         '</a>' +
         '<a class="row" href="'+esc(COMPANY.website)+'" target="_blank" rel="noopener">' +
           '<div class="row-ic">'+iconWeb()+'</div>' +
-          '<div class="row-text"><div class="rlabel">Site web</div><div class="rvalue prose">'+esc(COMPANY.websiteLabel)+'</div></div>' +
+          '<div class="row-text"><div class="rlabel">Site web · OctoVision</div><div class="rvalue prose">'+esc(COMPANY.websiteLabel)+'</div></div>' +
+          '<div class="row-go">'+iconChevron()+'</div>' +
+        '</a>' +
+        '<a class="row" href="'+esc(COMPANY.website2)+'" target="_blank" rel="noopener">' +
+          '<div class="row-ic">'+iconWeb()+'</div>' +
+          '<div class="row-text"><div class="rlabel">Site web · SocialVision</div><div class="rvalue prose">'+esc(COMPANY.website2Label)+'</div></div>' +
           '<div class="row-go">'+iconChevron()+'</div>' +
         '</a>' +
       '</div>' +
       '<p class="profile-slogan">« '+esc(COMPANY.slogan)+' »</p>' +
       '<div class="profile-foot">' +
+        '<div class="profile-brands"><img src="'+LOGO+'" alt="OctoVision / SocialVision"></div>' +
         '<button class="ghost-link" data-nav="qr" data-slug="'+person.slug+'" style="color:var(--navy-800);border-color:rgba(28,36,48,.35);">'+iconQrGlyph()+' Voir le QR code</button>' +
       '</div>' +
     '</div>';
@@ -681,4 +697,4 @@
 })();
 </script>
 
-<!-- redeploy 2026-11-23T14:18:24.406692+00:00 -->
+<!-- redeploy 2026-11-23T15:18:37.450909+00:00 -->
